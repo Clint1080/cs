@@ -48,15 +48,56 @@ const extraLargeArray = getSizedArray(100000);
 // Try it with first function
 perf.start();                     // Starts timer
 doublerAppend(extraLargeArray);
-let resultsAppend = perf.stop();  // Stops timer and save time results
+let resultsAppendExtraLarge = perf.stop();  // Stops timer and save time results
+
+perf.start();
+doublerAppend(largeArray);
+let resultsAppendLarge = perf.stop(); 
+
+perf.start();
+doublerAppend(mediumArray);
+let resultsAppendMedium = perf.stop(); 
+
+perf.start();
+doublerAppend(smallArray);
+let resultsAppendSmall = perf.stop(); 
+
+perf.start();
+doublerAppend(tinyArray);
+let resultsAppendTiny = perf.stop(); 
 
 
 // Try it with second function
 perf.start();
 doublerInsert(extraLargeArray);
-let resultsInsert = perf.stop();
+let resultsInsertExtraLarge = perf.stop();
+
+perf.start();
+doublerInsert(largeArray);
+let resultsInsertLarge = perf.stop();
+
+perf.start();
+doublerInsert(mediumArray);
+let resultsInsertMedium = perf.stop();
+
+perf.start();
+doublerInsert(smallArray);
+let resultsInsertSmall = perf.stop();
+
+perf.start();
+doublerInsert(tinyArray);
+let resultsInsertTiny = perf.stop();
 
 
 console.log('Results for the extraLargeArray');
-console.log("insert .unshift", resultsInsert.preciseWords);
-console.log("append .push", resultsAppend.preciseWords);
+console.log("insert Extra Large", resultsInsertExtraLarge.preciseWords);
+console.log("insert Large", resultsInsertLarge.preciseWords);
+console.log("insert Medium", resultsInsertMedium.preciseWords);
+console.log("insert Small", resultsInsertSmall.preciseWords);
+console.log("insert Tiny", resultsInsertTiny.preciseWords);
+
+console.log("append Extra Large", resultsAppendExtraLarge.preciseWords);
+console.log("append Large", resultsAppendLarge.preciseWords);
+console.log("append Medium", resultsAppendMedium.preciseWords);
+console.log("append Small", resultsAppendSmall.preciseWords);
+console.log("append Tiny", resultsAppendTiny.preciseWords);
